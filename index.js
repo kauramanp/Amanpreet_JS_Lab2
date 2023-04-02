@@ -63,13 +63,11 @@ function loadQuestions() {
         var quizEndElement = document.getElementById("quiz-end")
         quizEndElement.style.display = "none"
     }
-
-
-
 }
 
 document.getElementById("playAgain").onclick = function () {
     quiz.questionIndex = 0;
+    quiz.score = 0;
     loadQuestions();
 }
 
@@ -77,12 +75,8 @@ function handleOptionButton(id, choices) {
     var button = document.getElementById(id);
     button.onclick = function () {
         quiz.checkOptionWithAnswer(choices);
-        console.log("is quiz eneded " + quiz.isEnded);
-
-
         loadQuestions();
     }
-
 }
 
 loadQuestions();
