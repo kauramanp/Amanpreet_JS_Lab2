@@ -48,13 +48,6 @@ function loadQuestions() {
 
         var result = document.getElementById("result")
         result.innerHTML = "Your Scores:  " + quiz.score + " And Percentage is: " + (quiz.score / question.length * 100) + "%";
-
-        var playAgain = document.getElementById("playAgain");
-        playAgain.onclick = function () {
-            this.questionIndex = 0;
-            loadQuestions();
-        }
-
     } else {
         var element = document.getElementById("question")
         element.innerHTML = quiz.getQuestionByIndex().text;
@@ -73,6 +66,11 @@ function loadQuestions() {
 
 
 
+}
+
+document.getElementById("playAgain").onclick = function () {
+    quiz.questionIndex = 0;
+    loadQuestions();
 }
 
 function handleOptionButton(id, choices) {
